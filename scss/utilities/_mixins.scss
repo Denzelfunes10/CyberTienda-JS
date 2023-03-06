@@ -1,0 +1,22 @@
+@mixin font($family, $size, $color, $text){
+    font-family: $family;
+    font-size: $size;
+    color: $color;
+    text-align: $text;
+}
+@mixin flex($justify, $align){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+@mixin flexColumn($justifyC, $alignC){
+    display: flex;
+    flex-direction: column;
+    justify-content: $justifyC;
+    align-items: $alignC;
+}
+// @mixin bg-settings($size-bg, $repeat, $filtro){
+//     background-size: $size-bg;
+//     background-repeat: $repeat;
+//     filter: $filtro;
+// }
