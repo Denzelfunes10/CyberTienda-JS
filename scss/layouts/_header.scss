@@ -1,0 +1,55 @@
+.headerHome{
+    @include flexColumn(start, center);
+    row-gap: 30px;
+    height: 600px;
+    background-image: url(../assets/img/darkTrianglesHorizontal.png);
+    @include bg-settings(cover, no-repeat, none);
+    .navbar{
+        width: 95%;
+        margin-top: 20px;
+        padding-inline: 20px;
+        border-radius: 10px;
+        background-color: #fff;
+        h1{
+            @include font($title, 50px, black, center);
+            margin: 0;
+        }
+        form{
+            display: flex;
+            button{
+                border-width: 0;
+                background-color: white;
+                padding-right: 5px;
+                img{
+                    height: 40px;
+                    width: auto;
+                }
+            }
+            input{
+                width: 300px;
+            }
+        }
+        .icons img{
+            height: 30px;
+            width: auto;
+            padding-inline: 5px;
+        }
+        .menu button{
+            height: 50px;
+        }
+    }
+    h2{
+        @include font($title, 40px, #fff, center);
+        margin: 0;
+    }
+    .carousel{
+        display: flex;
+        width: 100%;
+        height: 350px;
+        overflow-x: scroll;
+        img {
+        scroll-snap-align: center;
+        width: 100%;
+        }
+    }
+}

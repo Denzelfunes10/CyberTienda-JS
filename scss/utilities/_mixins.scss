@@ -15,8 +15,8 @@
     justify-content: $justifyC;
     align-items: $alignC;
 }
-// @mixin bg-settings($size-bg, $repeat, $filtro){
-//     background-size: $size-bg;
-//     background-repeat: $repeat;
-//     filter: $filtro;
-// }
+@mixin bg-settings($size-bg, $repeat, $filtro){
+    background-size: $size-bg;
+    background-repeat: $repeat;
+    filter: $filtro;
+}

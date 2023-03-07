@@ -15,28 +15,31 @@
 </head>
 
 <body>
-    <head>
-        <h1>LA CYBER TIENDA</h1>
-        <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
-                <!------ Barra de navegación ------>
-                <form class="d-flex" role="search">
-                    <button class="btn btn-light" type="submit">
-                        <iconify-icon class="SearchIcon" icon="material-symbols:screen-search-desktop-rounded"></iconify-icon>
-                    </button>
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                </form>
-                <!------ Iconos de Carrito de compras y usuario ------>
-                <iconify-icon icon="ic:twotone-shopping-cart"></iconify-icon>|
-                <iconify-icon icon="mdi:user"></iconify-icon>
-                <!------ Boton Menu Hamburguesa ------>
+    <header class="headerHome">
+        <nav class="navbar">
+            <h1>LA CYBER TIENDA</h1>
+            <!------ Barra de navegación ------>
+            <form role="search">
+                <button type="submit">
+                    <img class=searchIcon src="./assets/img/searchIcon.svg" alt="Icono de busqueda">
+                </button>
+                <input class="form-control" type="search" placeholder="Buscar" aria-label="Search">
+            </form>
+            <!------ Iconos de Carrito de compras y usuario ------>
+            <div class="icons">
+                <img src="./assets/img/shoppingCart.svg" alt="carrito de compras">|
+                <img src="./assets/img/user.svg" alt="Usuario, Iniciar Sesión">
+            </div>
+            <!------ Menu Hamburguesa ------>
+            <div class="menu">
+                <!------ Boton Menu ------>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <!------ Menu Oculto ------>
                 <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
                     <div class="offcanvas-header">
-                        <h1 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Categorías</h1>
+                        <h2 class="offcanvas-title" id="offcanvasDarkNavbarLabel">CATEGORIAS</h2>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <!------ Lista de Categorías ------>
@@ -62,10 +65,55 @@
                         </li>
                     </div>
                 </div>
+            </div>
         </nav>
-        
-    </head>
-
+        <h2>NOVEDADES</h2>
+        <div class="carousel">
+            <img src="./assets/img/componentesGamer.png" alt="">
+            <img src="./assets/img/audifonos.png" alt="">
+            <img src="./assets/img/Laptop.png" alt="">
+        </div>
+    </header>
+    <main>
+        <h3>Nuestros Productos</h3>
+        <div class="productList">
+            <figure>
+                <img src="" alt="">
+                <figcaption></figcaption>
+            </figure>
+            <figure>
+                <img src="" alt="">
+                <figcaption></figcaption>
+            </figure>
+            <figure>
+                <img src="" alt="">
+                <figcaption></figcaption>
+            </figure>
+            <figure>
+                <img src="" alt="">
+                <figcaption></figcaption>
+            </figure>
+            <figure>
+                <img src="" alt="">
+                <figcaption></figcaption>
+            </figure>
+        </div>
+        <h3>Nuestros cursos formativos</h3>
+        <div class="courseList">
+            <figure>
+                <img src="" alt="">
+                <figcaption></figcaption>
+            </figure>
+            <figure>
+                <img src="" alt="">
+                <figcaption></figcaption>
+            </figure>
+            <figure>
+                <img src="" alt="">
+                <figcaption></figcaption>
+            </figure>
+        </div>
+    </main>
     <!------ Script de bootstrap ------>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
