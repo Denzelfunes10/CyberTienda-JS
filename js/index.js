@@ -47,28 +47,53 @@ function precios(){
     switch(code) {
         case "a1":
             let cantidad1 = parseInt(prompt("Ingrese la cantidad de unidades que deseas comprar"))
-            let precio1 = calcularPrecio(200, cantidad1)
-            alert(`El precio total es: $${precio1}`)
+            if(isNaN(cantidad1)){
+                alert("Ingrese una cantidad valida, por favor")
+                precios()
+            }else{
+                let precio1 = calcularPrecio(200, cantidad1)
+                alert(`El precio total es: $${precio1}`)
+            }
             break
         case "a2":
             let cantidad2 = parseInt(prompt("Ingrese la cantidad de unidades que deseas comprar"))
-            let precio2 = calcularPrecio(100, cantidad2)
-            alert(`El precio total es: $${precio2}`)
+            if(isNaN(cantidad2)){
+                alert("Ingrese una cantidad valida, por favor")
+                precios()
+            }else{
+                let precio2 = calcularPrecio(100, cantidad2)
+                alert(`El precio total es: $${precio2}`)
+            }
             break
         case "a3":
             let cantidad3 = parseInt(prompt("Ingrese la cantidad de unidades que deseas comprar"))
-            let precio3 = calcularPrecio(35, cantidad3)
-            alert(`El precio total es: $${precio3}`)
+            if(isNaN(cantidad3)){
+                alert("Ingrese una cantidad valida, por favor")
+                precios()
+            }else{
+                let precio3 = calcularPrecio(38, cantidad3)
+                alert(`El precio total es: $${precio3}`)
+            }
             break
         case "a4":
             let cantidad4 = parseInt(prompt("Ingrese la cantidad de unidades que deseas comprar"))
-            let precio4 = calcularPrecio(50, cantidad4)
-            alert(`El precio total es: $${precio4}`)
+            if(isNaN(cantidad4)){
+                alert("Ingrese una cantidad valida, por favor")
+                precios()
+            }else{
+                let precio4 = calcularPrecio(60, cantidad4)
+                alert(`El precio total es: $${precio4}`)
+            }
             break
         case "a5":
             let cantidad5 = parseInt(prompt("Ingrese la cantidad de unidades que deseas comprar"))
-            let precio5 = calcularPrecio(50, cantidad5)
-            alert(`El precio total es: $${precio5}`)
+            if(isNaN(cantidad5)){
+                alert("Ingrese una cantidad valida, por favor")
+                precios()
+            }else{
+                let precio5 = calcularPrecio(900, cantidad5)
+                alert(`El precio total es: $${precio5}`)
+            }
             break
         default: 
             alert("⛔️ Debes ingresar un código válido, por favor.")
@@ -86,7 +111,7 @@ function classes(){
             alert("Electrónica Básica - $30/mes")
             break
         case "b3":
-            alert("Introducción a la Programación - $30/mes")
+            alert("Desarrollo Web - $30/mes")
             break
         default: 
             alert("⛔️ Debes ingresar un código válido, por favor.");
