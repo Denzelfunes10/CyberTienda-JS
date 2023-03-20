@@ -1,0 +1,39 @@
+footer{
+    background-image: url(../assets/img/darkTrianglesHorizontal.png);
+    @include bg-settings(cover, no-repeat, none);
+    @include flexColumn(start, center);
+    margin-top: 20px;
+    section{
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr 2fr;
+        grid-template-areas: 
+        ". titulo ."
+        "horario direccion redes"
+        ;
+        h3{
+            grid-area: titulo;
+            @include font($title, 50px, #fff, center);
+            @include flex(center, center)
+        }
+        .horario{
+            grid-area: horario;
+            @include flex(center, center)
+        }
+        .direccion{
+            grid-area: direccion;
+            @include flex(center, center)
+        }
+        .redes{
+            grid-area: redes;
+            @include flexColumn(center, center);
+            img{
+                width: 200px;
+            }
+        }
+        div p{
+            @include font($text, 25px, #fff, center);
+        }
+    }
+}

@@ -1,0 +1,87 @@
+.carrito{
+    @include flexColumn(center, start);
+    width: 100%;
+    padding: 20px;
+
+    .carrito-header{
+        @include flex(start, center);
+        width: 100%;
+        padding-bottom: 20px;
+        img{
+            width: 150px;
+            height: fit-content;
+        }
+        h2{
+            padding: 20px;
+            @include font($title, 50px, #000, center);
+        }
+    }
+    .container-table{
+        display: flex;
+        flex-wrap: wrap;
+        align-self: center;
+        gap: 20px;
+        
+        .product-table {
+            width: 1000px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+
+            th:first-child {
+                width: 60%;
+            }
+
+            th{
+                background-color: #F5F5F5;
+                font-weight: bold;
+                text-align: left;
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+            }
+            td{
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+
+                button {
+                    background-color: #F5F5F5;
+                    border: none;
+                    color: #555;
+                    font-size: 18px;
+                    font-weight: bold;
+                    padding: 5px 10px;
+                    cursor: pointer;
+                }
+
+                button:hover {
+                    background-color: #ddd;
+                }
+                .quantity {
+                    text-align: center;
+                    margin: 0 10px;
+                }
+            }
+            td:last-child {
+                font-weight: bold;
+                text-align: center;
+            }
+        }
+        .resume-table{
+            width: 300px;
+
+            .checkout-btn {
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            
+            .checkout-btn:hover {
+                background-color: #0062cc;
+            }
+        }
+        
+    }
+}

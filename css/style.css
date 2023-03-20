@@ -24,23 +24,28 @@
   src: url(../assets/font/ProCrastinatingPixie.ttf); }
 
 @font-face {
-  font-family: "Alexandria";
-  src: url(../assets/font/alexandriaRegular.ttf); }
+  font-family: "Oswald-Light";
+  src: url(../assets/font/Oswald-Light.ttf); }
+
+@font-face {
+  font-family: "Oswald-SemiBold";
+  src: url(../assets/font/Oswald-SemiBold.ttf); }
 
 .headerHome {
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
   row-gap: 30px;
-  height: 600px;
+  height: fit-content;
   background-image: url(../assets/img/darkTrianglesHorizontal.png);
   background-size: cover;
   background-repeat: no-repeat;
   filter: none; }
   .headerHome .navbar {
     width: 95%;
-    margin-top: 20px;
     padding-inline: 20px;
     border-radius: 10px;
     background-color: #fff; }
@@ -83,47 +88,165 @@
       width: 100%; }
 
 main p {
-  font-family: "Alexandria";
+  font-family: "Oswald-SemiBold";
   font-size: 20px;
   color: #797979;
   text-align: center;
   padding: 20px; }
 
 main h3 {
-  font-family: "Alexandria";
+  font-family: "Oswald-SemiBold";
   font-size: 40px;
   color: #000;
   text-align: justify;
   margin: 20px; }
 
-main .productList {
+main section {
   display: flex;
+  flex-flow: wrap;
   justify-content: center;
   align-items: center; }
-  main .productList figure {
-    padding-inline: 20px; }
-    main .productList figure img {
+  main section figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 300px;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 3px 6px 10px 7px #aeaeae;
+    margin-inline: 15px;
+    padding: 10px; }
+    main section figure img {
       width: 100%;
-      max-height: 250px;
+      height: 230px;
       border-radius: 10px; }
-    main .productList figure figcaption {
-      font-family: arial;
+    main section figure figcaption {
+      font-family: "Oswald-Light";
       font-size: 20px;
       color: #000;
       text-align: center; }
 
-main .courseList {
+footer {
+  background-image: url(../assets/img/darkTrianglesHorizontal.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: none;
   display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  margin-top: 20px; }
+  footer section {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas: ". titulo ." "horario direccion redes"; }
+    footer section h3 {
+      grid-area: titulo;
+      font-family: "ProCrastinatingPixie";
+      font-size: 50px;
+      color: #fff;
+      text-align: center;
+      display: flex;
+      flex-flow: wrap;
+      justify-content: center;
+      align-items: center; }
+    footer section .horario {
+      grid-area: horario;
+      display: flex;
+      flex-flow: wrap;
+      justify-content: center;
+      align-items: center; }
+    footer section .direccion {
+      grid-area: direccion;
+      display: flex;
+      flex-flow: wrap;
+      justify-content: center;
+      align-items: center; }
+    footer section .redes {
+      grid-area: redes;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; }
+      footer section .redes img {
+        width: 200px; }
+    footer section div p {
+      font-family: "Oswald-Light";
+      font-size: 25px;
+      color: #fff;
+      text-align: center; }
+
+.carrito {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center; }
-  main .courseList figure {
-    padding-inline: 20px; }
-    main .courseList figure img {
-      width: 100%;
-      max-height: 250px;
-      border-radius: 10px; }
-    main .courseList figure figcaption {
-      font-family: arial;
-      font-size: 20px;
+  align-items: start;
+  width: 100%;
+  padding: 20px; }
+  .carrito .carrito-header {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 20px; }
+    .carrito .carrito-header img {
+      width: 150px;
+      height: fit-content; }
+    .carrito .carrito-header h2 {
+      padding: 20px;
+      font-family: "ProCrastinatingPixie";
+      font-size: 50px;
       color: #000;
       text-align: center; }
+  .carrito .container-table {
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    gap: 20px; }
+    .carrito .container-table .product-table {
+      width: 1000px;
+      font-family: Arial, sans-serif;
+      font-size: 14px; }
+      .carrito .container-table .product-table th:first-child {
+        width: 60%; }
+      .carrito .container-table .product-table th {
+        background-color: #F5F5F5;
+        font-weight: bold;
+        text-align: left;
+        padding: 10px;
+        border-bottom: 1px solid #ddd; }
+      .carrito .container-table .product-table td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd; }
+        .carrito .container-table .product-table td button {
+          background-color: #F5F5F5;
+          border: none;
+          color: #555;
+          font-size: 18px;
+          font-weight: bold;
+          padding: 5px 10px;
+          cursor: pointer; }
+        .carrito .container-table .product-table td button:hover {
+          background-color: #ddd; }
+        .carrito .container-table .product-table td .quantity {
+          text-align: center;
+          margin: 0 10px; }
+      .carrito .container-table .product-table td:last-child {
+        font-weight: bold;
+        text-align: center; }
+    .carrito .container-table .resume-table {
+      width: 300px; }
+      .carrito .container-table .resume-table .checkout-btn {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer; }
+      .carrito .container-table .resume-table .checkout-btn:hover {
+        background-color: #0062cc; }

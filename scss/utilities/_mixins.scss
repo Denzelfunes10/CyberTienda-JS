@@ -6,6 +6,7 @@
 }
 @mixin flex($justify, $align){
     display: flex;
+    flex-flow: wrap;
     justify-content: $justify;
     align-items: $align;
 }

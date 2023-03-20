@@ -1,12 +1,13 @@
 .headerHome{
     @include flexColumn(start, center);
+    padding-top: 20px;
+    padding-bottom: 20px;
     row-gap: 30px;
-    height: 600px;
+    height: fit-content;
     background-image: url(../assets/img/darkTrianglesHorizontal.png);
     @include bg-settings(cover, no-repeat, none);
     .navbar{
         width: 95%;
-        margin-top: 20px;
         padding-inline: 20px;
         border-radius: 10px;
         background-color: #fff;
