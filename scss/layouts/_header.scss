@@ -1,4 +1,4 @@
-.headerHome{
+header{
     @include flexColumn(start, center);
     padding-top: 20px;
     padding-bottom: 20px;
@@ -35,9 +35,19 @@
             width: auto;
             padding-inline: 5px;
         }
-        .menu button{
-            height: 50px;
-        }
+        .menu{
+            button{
+                height: 50px;
+            }
+            .nav-item{
+                list-style: none;
+                padding-bottom: 10px;
+                a{
+                    @include font($subtitle, 20px, #fff, center);
+                }
+            }
+        } 
+        
     }
     h2{
         @include font($title, 40px, #fff, center);

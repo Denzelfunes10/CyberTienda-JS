@@ -7,14 +7,14 @@ footer{
         display: grid;
         width: 100%;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 1fr 2fr;
+        grid-template-rows: 100px 250px;
         grid-template-areas: 
         "titulo titulo titulo"
         "horario direccion redes"
         ;
         h3{
             grid-area: titulo;
-            @include font($title, 50px, #fff, center);
+            @include font($title, 40px, #fff, center);
             @include flex(center, center);
             border-bottom: 5px solid #ddd;
             margin-inline: 30px;
@@ -46,7 +46,7 @@ footer{
             }
         }
         div p{
-            @include font($text, 25px, #fff, center);
+            @include font($text, 20px, #fff, center);
         }
     }
 }

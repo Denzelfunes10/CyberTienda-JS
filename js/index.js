@@ -1,120 +1,114 @@
-const welcomeMessage = "Bienvenido a La CyberTienda, seleccione una opción \n" +
-                        "a - Consultar precio de productos \n" +
-                        "b - Consultar precio de clases \n"
 
-const priceMessage = "Para conocer el precio ingrese el código del producto que desee: \n" +
-                        "a1 - Monitor Samsung 32in \n" +
-                        "a2 - Teclado HyperX \n" +
-                        "a3 - Mouse Gamer \n" +
-                        "a4 - Audifonos Inalambricos \n" +
-                        "a5 - Laptop Acer Nitro 5 \n"
+const welcomeMessage = "Bienvenido a La CyberTienda, seleccione la opción que desea realizar\n" +
+                        "1 - Comprar\n" +
+                        "2 - Ver mi carrito de compras \n"+
+                        "3 - Salir"
 
-const classesMessage = "Para conocer el precio ingrese el código del producto que desee: \n" +
-                        "b1 - Curso de Ofimatica Básica \n" +
-                        "b2 - Curso de Reparación de electrodomesticos \n" +
-                        "b3 - Curso de Introducción a la Programación \n" 
+const shopMessage = "Ingrese el codigo del producto que desea comprar"+
+                    "1 - Mouse Gamer \n" +
+                    "2 - Audifonos Inalambricos \n" +
+                    "3 - Mouse Gamer \n" +
+                    "4 - Audifonos Inalambricos \n" +
+                    "5 - Mouse Gamer \n" +
+                    "6 - Audifonos Inalambricos \n" +
+                    "7 - Mouse Gamer \n" +
+                    "8 - Audifonos Inalambricos \n" +
+                    "9 - Laptop Acer Nitro 5 \n" +
+                    "10 - Laptop Acer Nitro 5 \n"
 
-let continuar = true
-
-function iniciarSimulacion() {
-    while(continuar){
-        Bienvenida()
+function iniciarSimulacion(){
+    let opcion = parseInt(prompt(welcomeMessage))
+    if(opcion == 1){
+        shop()
+    }
+    else if(opcion == 2){
+        verMiCarrito()
+    }
+    else if(opcion == 3){
+        alert("Gracias por visitar nuestra pagina web, tenga un feliz día")
+    }
+    else {
+        alert("Por favor ingrese una opción valida")
+        let respuesta = confirm("¿Desea intentarlo nuevamente?")
+        if(respuesta){
+            iniciarSimulacion()
+        }
+        else{
+            alert("Gracias por visitar nuestra pagina web, tenga un feliz día")
+        }
     }
 }
-function Bienvenida(){
-    let option = prompt(welcomeMessage).toLowerCase().trim()
-
-    if (option !== "a" && option !== "b"){
-        alert("⛔️ Debes ingresar una opción válida, por favor.")
+function shop(){
+    //debugger
+    let codigo = parseInt(prompt(shopMessage))
+    console.log(typeof(codigo))
+    if(isNaN(codigo)){
+        alert("Codigo ingresado no valido o no se ha ingresado ningun valor")
+        let respuesta = confirm("¿Desea intentarlo nuevamente?")
+        if(respuesta){
+            shop()
+        }
+        else{
+            iniciarSimulacion()
+        }
+    }
+    else {
+        let productoSeleccionado = buscar(codigo)
+        if(productoSeleccionado == undefined){
+            alert("El código ingresado no existe o esta fuera de stock")
+            let respuesta = confirm("¿Desea seleccionar un nuevo producto?")
+            if(respuesta){
+                shop()
+            }
+            else{
+                iniciarSimulacion()
+            }
+        }
+        else{
+            alert(`El producto ${productoSeleccionado.nombre} ha sido añadido al carrito`)
+            carrito.push(productoSeleccionado)
+            let respuesta = confirm("¿Desea continuar la compra?")
+            if (respuesta){
+                shop()
+            }
+            else{
+                tramitarPedido()
+            }
+        }
+    }
+}
+function buscar(codigo){
+    let resultado = listProducts.find((Product)=> Product.codigo === parseInt(codigo))
+    console.log(typeof(resultado))
+    return resultado
+}
+function verMiCarrito(){
+    if(carrito.length > 0){
+        console.table(carrito)
+        let respuesta = confirm("¿Desea tramitar el pedido su carrito?")
+        if(respuesta){
+            tramitarPedido()
+        }
+        else{
+            iniciarSimulacion()
+        }
     }
     else{
-        if (option == "a"){
-            precios()
-        }
-        else if (option == "b"){
-            classes()
-        }
-        continuar = confirm("¿Desea consultar más precios?")
+        alert("Aun no tiene ningun producto agregado al carrito")
+        iniciarSimulacion()
     }
 }
-function calcularPrecio(precioBase, cantidad) {
-    let precioTotal = precioBase * cantidad
-    return precioTotal
-}
-function precios(){
-    let code = prompt(priceMessage).toLowerCase().trim()
-
-    switch(code) {
-        case "a1":
-            let cantidad1 = parseInt(prompt("Ingrese la cantidad de unidades que deseas comprar"))
-            if(isNaN(cantidad1)){
-                alert("Ingrese una cantidad valida, por favor")
-                precios()
-            }else{
-                let precio1 = calcularPrecio(200, cantidad1)
-                alert(`El precio total es: $${precio1}`)
-            }
-            break
-        case "a2":
-            let cantidad2 = parseInt(prompt("Ingrese la cantidad de unidades que deseas comprar"))
-            if(isNaN(cantidad2)){
-                alert("Ingrese una cantidad valida, por favor")
-                precios()
-            }else{
-                let precio2 = calcularPrecio(100, cantidad2)
-                alert(`El precio total es: $${precio2}`)
-            }
-            break
-        case "a3":
-            let cantidad3 = parseInt(prompt("Ingrese la cantidad de unidades que deseas comprar"))
-            if(isNaN(cantidad3)){
-                alert("Ingrese una cantidad valida, por favor")
-                precios()
-            }else{
-                let precio3 = calcularPrecio(38, cantidad3)
-                alert(`El precio total es: $${precio3}`)
-            }
-            break
-        case "a4":
-            let cantidad4 = parseInt(prompt("Ingrese la cantidad de unidades que deseas comprar"))
-            if(isNaN(cantidad4)){
-                alert("Ingrese una cantidad valida, por favor")
-                precios()
-            }else{
-                let precio4 = calcularPrecio(60, cantidad4)
-                alert(`El precio total es: $${precio4}`)
-            }
-            break
-        case "a5":
-            let cantidad5 = parseInt(prompt("Ingrese la cantidad de unidades que deseas comprar"))
-            if(isNaN(cantidad5)){
-                alert("Ingrese una cantidad valida, por favor")
-                precios()
-            }else{
-                let precio5 = calcularPrecio(900, cantidad5)
-                alert(`El precio total es: $${precio5}`)
-            }
-            break
-        default: 
-            alert("⛔️ Debes ingresar un código válido, por favor.")
-            precios();
-    }
-}
-function classes(){
-    let code = prompt(classesMessage).toLowerCase().trim()
-
-    switch(code) {
-        case "b1":
-            alert("Ofimatica Básica - $20/mes ")
-            break
-        case "b2":
-            alert("Electrónica Básica - $30/mes")
-            break
-        case "b3":
-            alert("Desarrollo Web - $30/mes")
-            break
-        default: 
-            alert("⛔️ Debes ingresar un código válido, por favor.");
-            classes();
+function tramitarPedido(){
+    if(carrito.length > 0){
+        const shopping = new compra(carrito)
+        alert(`El costo total del pedido es $${shopping.subtotal()}`)
+        let respuesta = confirm("¿Desea realizar la compra?")
+        if(respuesta){
+            alert(shopping.shopConfirm())
+            carrito.length = 0
+        }
+        else{
+            iniciarSimulacion()
+        }
     }
 }

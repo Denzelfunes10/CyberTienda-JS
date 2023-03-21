@@ -3,9 +3,6 @@
   padding: 0;
   box-sizing: border-box; }
 
-nav-item {
-  list-style: none; }
-
 a {
   text-decoration: none; }
 
@@ -48,7 +45,7 @@ p {
   font-family: "lexendExa";
   src: url(../assets/font/LexendExa-Regular.ttf); }
 
-.headerHome {
+header {
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -61,46 +58,54 @@ p {
   background-size: cover;
   background-repeat: no-repeat;
   filter: none; }
-  .headerHome .navbar {
+  header .navbar {
     width: 95%;
     padding-inline: 20px;
     border-radius: 10px;
     background-color: #fff; }
-    .headerHome .navbar h1 {
+    header .navbar h1 {
       font-family: "ProCrastinatingPixie";
       font-size: 50px;
       color: black;
       text-align: center;
       margin: 0; }
-    .headerHome .navbar form {
+    header .navbar form {
       display: flex; }
-      .headerHome .navbar form button {
+      header .navbar form button {
         border-width: 0;
         background-color: white;
         padding-right: 5px; }
-        .headerHome .navbar form button img {
+        header .navbar form button img {
           height: 40px;
           width: auto; }
-      .headerHome .navbar form input {
+      header .navbar form input {
         width: 300px; }
-    .headerHome .navbar .icons img {
+    header .navbar .icons img {
       height: 30px;
       width: auto;
       padding-inline: 5px; }
-    .headerHome .navbar .menu button {
+    header .navbar .menu button {
       height: 50px; }
-  .headerHome h2 {
+    header .navbar .menu .nav-item {
+      list-style: none;
+      padding-bottom: 10px; }
+      header .navbar .menu .nav-item a {
+        font-family: "LexendDeca";
+        font-size: 20px;
+        color: #fff;
+        text-align: center; }
+  header h2 {
     font-family: "ProCrastinatingPixie";
     font-size: 40px;
     color: #fff;
     text-align: center;
     margin: 0; }
-  .headerHome .carousel {
+  header .carousel {
     display: flex;
     width: 100%;
     height: 350px;
     overflow-x: scroll; }
-    .headerHome .carousel img {
+    header .carousel img {
       scroll-snap-align: center;
       width: 100%; }
 
@@ -158,12 +163,12 @@ footer {
     display: grid;
     width: 100%;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr 2fr;
+    grid-template-rows: 100px 250px;
     grid-template-areas: "titulo titulo titulo" "horario direccion redes"; }
     footer section h3 {
       grid-area: titulo;
       font-family: "ProCrastinatingPixie";
-      font-size: 50px;
+      font-size: 40px;
       color: #fff;
       text-align: center;
       display: flex;
@@ -205,7 +210,7 @@ footer {
         width: 200px; }
     footer section div p {
       font-family: "LexendExa";
-      font-size: 25px;
+      font-size: 20px;
       color: #fff;
       text-align: center; }
 
