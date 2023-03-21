@@ -9,25 +9,38 @@ footer{
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 1fr 2fr;
         grid-template-areas: 
-        ". titulo ."
+        "titulo titulo titulo"
         "horario direccion redes"
         ;
         h3{
             grid-area: titulo;
             @include font($title, 50px, #fff, center);
-            @include flex(center, center)
+            @include flex(center, center);
+            border-bottom: 5px solid #ddd;
+            margin-inline: 30px;
         }
         .horario{
             grid-area: horario;
-            @include flex(center, center)
+            @include flex(center, center);
+            border-right: 2px solid #ddd;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 30px;
         }
         .direccion{
             grid-area: direccion;
-            @include flex(center, center)
+            @include flex(center, center);
+            border-right: 2px solid #ddd;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 30px;
         }
         .redes{
             grid-area: redes;
             @include flexColumn(center, center);
+            padding: 30px;
+            margin-top: 20px;
+            margin-bottom: 20px;
             img{
                 width: 200px;
             }

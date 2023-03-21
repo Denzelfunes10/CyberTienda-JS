@@ -16,7 +16,7 @@
 <body>
     <header class="headerHome">
         <nav class="navbar">
-            <h1>LA CYBER TIENDA</h1>
+            <a href="../index.html"><h1>LA CYBER TIENDA</h1></a>
             <!------ Barra de navegación ------>
             <form role="search">
                 <button type="submit">
@@ -47,22 +47,22 @@
                     <!------ Lista de Categorías ------>
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li>
+                            <li class="nav-item">
                                 <a href="../index.html">Inicio</a>
                             </li>
-                            <li>
+                            <li class="nav-item">
                                 <a href="#">Informática</a>
                             </li>
-                            <li>
+                            <li class="nav-item">
                                 <a href="#">Redes y Seguridad</a>
                             </li>
-                            <li>
+                            <li class="nav-item">
                                 <a href="#">Productos Gamer</a>
                             </li>
-                            <li>
+                            <li class="nav-item">
                                 <a href="#">Servicio Técnico</a>
                             </li>
-                            <li>
+                            <li class="nav-item">
                                 <a href="#">Clases</a>
                             </li>
                         </ul>
@@ -73,26 +73,76 @@
     </header>
 
     <main class="carrito">
-
         <div class="carrito-header">
             <img src="../assets/img/cartIconSection.png" alt="Icono de carrito de compras">
-            <h2>CARRITO</h2>
+            <h2>MI CARRITO</h2>
         </div>
-
         <div class="container-table">
             <table class="product-table">
                 <thead>
                     <tr>
-                        <th>Producto</th>
+                        <th colspan="2">Producto</th>
                         <th>Cantidad</th>
                         <th>Precio</th>
                         <th>Subtotal</th>
                     </tr>
                 </thead>
-    
-                <tbody>
+                <tbody class="products-container">
                     <tr>
-                        <td>Producto 1</td>
+                        <td>
+                            <img src="../assets/img/acerNitro.png" alt="acerNitro">
+                        </td>
+                        <td>
+                            <a href="#"><h4>Laptop Acer Nitro 5</h4></a>
+                            <p>Endless OS
+                                Procesador Intel® Core™ i5-11400H Hexa-core (6 núcleos) 2,70 GHz
+                                NVIDIA® GeForce RTX™ 3050Ti con 4 GB de memoria dedicada
+                                39,6 cm (15,6") Full HD (1920 x 1080) 16:9 144 Hz
+                                16 GB, DDR4 SDRAM
+                                512 GB SSD</p>
+                        </td>
+                        <td class="quantity-container">
+                            <button class="button" id="subtract-btn">-</button>
+                            <span class="quantity" id="quantity">10</span>
+                            <button class="button" id="add-btn">+</button>
+                        </td>
+                        <td>$10.00</td>
+                        <td>$10.00</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="../assets/img/acerNitro.png" alt="acerNitro">
+                        </td>
+                        <td>
+                            <a href="#"><h4>Laptop Acer Nitro 5</h4></a>
+                            <p>Endless OS
+                                Procesador Intel® Core™ i5-11400H Hexa-core (6 núcleos) 2,70 GHz
+                                NVIDIA® GeForce RTX™ 3050Ti con 4 GB de memoria dedicada
+                                39,6 cm (15,6") Full HD (1920 x 1080) 16:9 144 Hz
+                                16 GB, DDR4 SDRAM
+                                512 GB SSD</p>
+                        </td>
+                        <td class="quantity-container">
+                            <button class="button" id="subtract-btn">-</button>
+                            <span class="quantity" id="quantity">10</span>
+                            <button class="button" id="add-btn">+</button>
+                        </td>
+                        <td>$10.00</td>
+                        <td>$10.00</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="../assets/img/acerNitro.png" alt="acerNitro">
+                        </td>
+                        <td>
+                            <a href="#"><h4>Laptop Acer Nitro 5</h4></a>
+                            <p>Endless OS
+                                Procesador Intel® Core™ i5-11400H Hexa-core (6 núcleos) 2,70 GHz
+                                NVIDIA® GeForce RTX™ 3050Ti con 4 GB de memoria dedicada
+                                39,6 cm (15,6") Full HD (1920 x 1080) 16:9 144 Hz
+                                16 GB, DDR4 SDRAM
+                                512 GB SSD</p>
+                        </td>
                         <td class="quantity-container">
                             <button class="button" id="subtract-btn">-</button>
                             <span class="quantity" id="quantity">10</span>
@@ -121,8 +171,11 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td>TOTAL</td>
-                        <td>$$$$</td>
+                        <td>
+                            TOTAL
+                            <p>IVA incluido</p>
+                        </td>
+                        <td>$1200</td>
                     </tr>
                     <tr>
                         <td colspan="2" class="checkout-btn-container">
@@ -132,30 +185,33 @@
                 </tfoot>
             </table>
         </div>
-        
-        <!-- <h3 class="product-title">Producto</h3>
-        <h3 class="quantity-title">cantidad</h3>
-        <h3 class="price-title">Precio</h3>
-        <div class="container-products">
-            <div class="product">
-                <img src="../assets/img/acerNitro.png" alt="">
-                <div product>
-                    <h4>Acer Nitro 5</h4>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Reprehenderit animi, aliquid veniam dolor.</p>
-                    <span>Eliminar</span>
-                </div>
-                <div class="quantity-boton">
-                    <button>-</button>
-                    <p>1</p>
-                    <button>+</button>
-                </div>
-                <div>
-                    <p>$899.00</p>
-                </div>
-            </div>
-        </div> -->
     </main>
+    <footer>
+        <section>
+            <h3>CONTACTANOS</h3>
+            <div class="horario">
+                <p>
+                    HORARIO<br>
+                    Lunes a Viernes:<br>
+                    8:30-5:30pm<br>
+                    Sábado y domingo:<br>
+                    9:00-1:00 pm.<br>
+                </p>
+            </div>
+            <div class="direccion">
+                <p>
+                    Visítanos en Bulevar Constitución #40,<br>
+                    Frente a Vidri y Pampa,<br>
+                    a 100 Metros del redondel Constitución.<br>
+                </p>
+            </div>
+            <div class="redes">
+                <img src="../assets/img/insta2.png" alt="instagram">
+                <img src="../assets/img/face2.png" alt="facebook">
+                <img src="../assets/img/whatsapp2.png" alt="whatsapp">
+            </div>
+        </section>
+    </footer>
     <!------ Script de bootstrap ------>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
