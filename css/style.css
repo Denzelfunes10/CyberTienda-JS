@@ -45,6 +45,27 @@ p {
   font-family: "lexendExa";
   src: url(../assets/font/LexendExa-Regular.ttf); }
 
+.product-target {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 300px;
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 3px 6px 10px 7px #aeaeae;
+  margin-inline: 15px;
+  padding: 10px; }
+  .product-target img {
+    width: 100%;
+    height: 230px;
+    border-radius: 10px; }
+  .product-target figcaption {
+    font-family: "LexendExa";
+    font-size: 20px;
+    color: #000;
+    text-align: center; }
+
 header {
   display: flex;
   flex-direction: column;
@@ -128,26 +149,6 @@ header {
   flex-flow: wrap;
   justify-content: center;
   align-items: center; }
-  .main-home section figure {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 300px;
-    width: 250px;
-    border-radius: 10px;
-    box-shadow: 3px 6px 10px 7px #aeaeae;
-    margin-inline: 15px;
-    padding: 10px; }
-    .main-home section figure img {
-      width: 100%;
-      height: 230px;
-      border-radius: 10px; }
-    .main-home section figure figcaption {
-      font-family: "LexendExa";
-      font-size: 20px;
-      color: #000;
-      text-align: center; }
 
 footer {
   background-image: url(../assets/img/darkTrianglesHorizontal.png);
@@ -214,6 +215,35 @@ footer {
       color: #fff;
       text-align: center; }
 
+.main-products {
+  padding: 30px; }
+  .main-products h1 {
+    font-family: "ProCrastinatingPixie";
+    font-size: 40px;
+    color: #000;
+    text-align: left;
+    padding-bottom: 10px; }
+  .main-products div {
+    font-family: "LexendExa";
+    font-size: 20px;
+    color: #000;
+    text-align: left;
+    display: flex;
+    padding-bottom: 30px; }
+    .main-products div img {
+      height: 30px;
+      width: auto;
+      padding-right: 5px; }
+    .main-products div a {
+      color: #000; }
+  .main-products section {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px; }
+
 .carrito {
   display: flex;
   flex-direction: column;
@@ -236,6 +266,11 @@ footer {
       font-family: "LexendDeca";
       font-size: 50px;
       color: #000;
+      text-align: center; }
+    .carrito .carrito-header p {
+      font-family: "LexendExa";
+      font-size: 20px;
+      color: #5d5d5d;
       text-align: center; }
   .carrito .container-table {
     display: flex;

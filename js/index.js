@@ -5,16 +5,16 @@ const welcomeMessage = "Bienvenido a La CyberTienda, seleccione la opción que d
                         "3 - Salir"
 
 const shopMessage = "Ingrese el codigo del producto que desea comprar"+
-                    "1 - Mouse Gamer \n" +
-                    "2 - Audifonos Inalambricos \n" +
-                    "3 - Mouse Gamer \n" +
-                    "4 - Audifonos Inalambricos \n" +
-                    "5 - Mouse Gamer \n" +
-                    "6 - Audifonos Inalambricos \n" +
-                    "7 - Mouse Gamer \n" +
-                    "8 - Audifonos Inalambricos \n" +
-                    "9 - Laptop Acer Nitro 5 \n" +
-                    "10 - Laptop Acer Nitro 5 \n"
+                    "1 - Acer Nitro 5 \n" +
+                    "2 - Audifonos Logitech \n" +
+                    "3 - Teclado HyperX Alloy \n" +
+                    "4 - Monitor Samsung 32in \n" +
+                    "5 - Mouse Logitech \n" +
+                    "6 - Mouse Etouch \n" +
+                    "7 - Audifonos P33 \n" +
+                    "8 - Audifonos Bluetooth Pro 6 \n" +
+                    "9 - Memoria Kingston 8GB \n" +
+                    "10 - Nintendo Retro \n"
 
 function iniciarSimulacion(){
     let opcion = parseInt(prompt(welcomeMessage))

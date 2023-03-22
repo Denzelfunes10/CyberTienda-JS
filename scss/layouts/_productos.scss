@@ -1,0 +1,25 @@
+.main-products{
+    padding: 30px;
+    h1{
+        @include font($title, 40px, #000, left);
+        padding-bottom:10px;
+    }
+    div{
+        @include font($text, 20px, #000, left);
+        display: flex;
+        padding-bottom: 30px;
+        img{
+            height: 30px;
+            width: auto;
+            padding-right: 5px;
+        }
+        a{
+            color: #000;
+        }
+    }
+    section{
+        @include flex(center, center);
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}

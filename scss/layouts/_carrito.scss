@@ -15,6 +15,10 @@
             padding: 20px;
             @include font($subtitle, 50px, #000, center);
         }
+        p{
+            @include font($text, 20px, #5d5d5d, center);
+
+        }
     }
     
     .container-table{
