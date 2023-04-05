@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>CyberTienda|Carrito</title>
-    <script src="../js/index.js"></script>
-    <script src="../js/productos.js"></script>
-    <script src="../js/class-compra.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/productos.js"></script>
+    <script src="../js/class-compra.js"></script>
+    <script defer src="../js/templates.js"></script>
+    <script defer src="../js/index.js"></script>
 </head>
 
 <body>
@@ -28,8 +29,12 @@
             </form>
             <!------ Iconos de Carrito de compras y usuario ------>
             <div class="icons">
-                <a href="#"><img src="../assets/img/shoppingCart.svg" alt="carrito de compras"></a>|
-                <a href="#"><img src="../assets/img/user.svg" alt="Usuario, Iniciar Sesión"></a>
+                <div>
+                    <a href="./carrito.html"><img src="../assets/img/shoppingCart.svg" alt="carrito de compras">Mi carrito</a>
+                </div>
+                <div>
+                    <a href="#"><img src="../assets/img/user.svg" alt="Usuario, Iniciar Sesión">Iniciar Seción</a>
+                </div>
             </div>
             <!------ Menu Hamburguesa ------>
             <div class="menu">
@@ -85,8 +90,8 @@
                         <th>Subtotal</th>
                     </tr>
                 </thead>
-                <tbody class="products-container">
-                    <tr>
+                <tbody id="carritoBody" class="products-container">
+                    <!-- <tr>
                         <td>
                             <img src="../assets/img/imgProductos/acerNitro.png" alt="acerNitro">
                         </td>
@@ -106,7 +111,7 @@
                         </td>
                         <td>$899.00</td>
                         <td>$1798.00</td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
             <table class="resume-table">

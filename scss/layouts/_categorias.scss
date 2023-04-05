@@ -1,0 +1,58 @@
+.main-categories{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1.5fr repeat(5, 1fr);
+    grid-template-rows: 150px repeat(3, 1fr) 150px;
+    grid-template-areas: 
+    "C-title . . . . ."
+    "C-categories C-products C-products C-products C-products C-products"
+    "C-categories C-products C-products C-products C-products C-products"
+    "C-categories C-products C-products C-products C-products C-products"
+    "C-categories . . . . ."
+    ;
+
+    .section-title{
+        grid-area: C-title;
+        @include flexColumn(center, left);
+        padding-left: 25px;
+        h1{
+            @include font($title, 40px, #000, left);
+        }
+        .main-rute{
+            @include flex(left, center);
+            img{
+                display: block;
+                height: 25px;
+                width: auto; 
+                padding-right: 5px;
+            }
+            a{
+                @include font($text, 20px, #888, left);
+            }
+        }
+    }
+    .acc-list{
+        grid-area: C-categories;
+        padding-inline: 20px;
+        width: 100%;
+        h2{
+            @include font($subtitle, 25px, #000, left);
+        }
+        ul li{
+            list-style: none;
+            @include font($text, 16px, #888, left);
+            padding: 5px;
+        }
+        li:hover{
+            cursor: pointer; 
+            color: darkblue;
+            font-size: 105%;
+        }
+    }
+    .categories-products{
+        grid-area: C-products;
+        padding-inline: 25px;
+        @include flex(center, center);
+        gap: 20px;
+    }
+}

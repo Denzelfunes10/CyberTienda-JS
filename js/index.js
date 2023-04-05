@@ -1,114 +1,107 @@
 
-const welcomeMessage = "Bienvenido a La CyberTienda, seleccione la opción que desea realizar\n" +
-                        "1 - Comprar\n" +
-                        "2 - Ver mi carrito de compras \n"+
-                        "3 - Salir"
+//----------------------- CARGA DE CATEGORIAS -----------------------//
 
-const shopMessage = "Ingrese el codigo del producto que desea comprar"+
-                    "1 - Acer Nitro 5 \n" +
-                    "2 - Audifonos Logitech \n" +
-                    "3 - Teclado HyperX Alloy \n" +
-                    "4 - Monitor Samsung 32in \n" +
-                    "5 - Mouse Logitech \n" +
-                    "6 - Mouse Etouch \n" +
-                    "7 - Audifonos P33 \n" +
-                    "8 - Audifonos Bluetooth Pro 6 \n" +
-                    "9 - Memoria Kingston 8GB \n" +
-                    "10 - Nintendo Retro \n"
+document.addEventListener("DOMContentLoaded", () => {
+    returnCarrito()
+    if (carrito.length > 0) {
+        pushCarrito()
+    }
+})
 
-function iniciarSimulacion(){
-    let opcion = parseInt(prompt(welcomeMessage))
-    if(opcion == 1){
-        shop()
-    }
-    else if(opcion == 2){
-        verMiCarrito()
-    }
-    else if(opcion == 3){
-        alert("Gracias por visitar nuestra pagina web, tenga un feliz día")
-    }
-    else {
-        alert("Por favor ingrese una opción valida")
-        let respuesta = confirm("¿Desea intentarlo nuevamente?")
-        if(respuesta){
-            iniciarSimulacion()
-        }
-        else{
-            alert("Gracias por visitar nuestra pagina web, tenga un feliz día")
-        }
+document.addEventListener("DOMContentLoaded", ()=>{categorySelected()})
+
+const categoriesContainer = document.querySelector (".list-categories")
+const rutaContainer = document.getElementById("category-rute"); 
+
+for (let i = 0; i < Categories.length; i++) {
+    const li = document.createElement('li');
+    li.id = Categories[i].codigo;
+    li.className = "categoria";
+    li.setAttribute("ruta", Categories[i].ruta);
+    li.textContent = Categories[i].nombre;
+    categoriesContainer.appendChild(li);
+}
+
+function categorySelected() {
+    const categories = document.getElementsByClassName("categoria");
+    for (category of categories) {
+        category.addEventListener("click", (event) => { 
+            const ruta = event.target.getAttribute("ruta");
+            rutaContainer.textContent = ruta;
+        })
     }
 }
-function shop(){
-    //debugger
-    let codigo = parseInt(prompt(shopMessage))
-    console.log(typeof(codigo))
-    if(isNaN(codigo)){
-        alert("Codigo ingresado no valido o no se ha ingresado ningun valor")
-        let respuesta = confirm("¿Desea intentarlo nuevamente?")
-        if(respuesta){
-            shop()
-        }
-        else{
-            iniciarSimulacion()
-        }
-    }
-    else {
-        let productoSeleccionado = buscar(codigo)
-        if(productoSeleccionado == undefined){
-            alert("El código ingresado no existe o esta fuera de stock")
-            let respuesta = confirm("¿Desea seleccionar un nuevo producto?")
-            if(respuesta){
-                shop()
-            }
-            else{
-                iniciarSimulacion()
-            }
-        }
-        else{
-            alert(`El producto ${productoSeleccionado.nombre} ha sido añadido al carrito`)
-            carrito.push(productoSeleccionado)
-            let respuesta = confirm("¿Desea continuar la compra?")
-            if (respuesta){
-                shop()
-            }
-            else{
-                tramitarPedido()
-            }
-        }
+
+//----------------------- CARGA DE PRODUCTOS -----------------------//
+
+function pushProducts(){
+    const productsContainer = document.getElementById("products-section");
+    listProducts.forEach((producto)=>{
+        productsContainer.innerHTML += cardReturn(producto)
+    })
+}
+
+document.addEventListener("DOMContentLoaded", pushProducts)
+
+//----------------------- CARGA DE CARRITO -----------------------//
+
+
+
+function btnClick() {
+    const btnAdd = document.getElementsByClassName("btn-add")
+    for (btn of btnAdd){
+            btn.addEventListener("click", (e) => {
+                addToCart(e.target.id)
+        })
     }
 }
-function buscar(codigo){
-    let resultado = listProducts.find((Product)=> Product.codigo === parseInt(codigo))
-    console.log(typeof(resultado))
-    return resultado
-}
-function verMiCarrito(){
-    if(carrito.length > 0){
-        console.table(carrito)
-        let respuesta = confirm("¿Desea tramitar el pedido su carrito?")
-        if(respuesta){
-            tramitarPedido()
+
+document.addEventListener("DOMContentLoaded", btnClick)
+    
+function addToCart(id) {
+    let resultado = listProducts.find( producto => producto.codigo === parseInt(id))
+    if(resultado !== undefined){
+        let productInCart = carrito.find( producto => producto.codigo === parseInt(id))
+        if(productInCart){
+            productInCart.cantidad = productInCart.cantidad + 1;
+            guardarCarrito()
+            console.log(carrito)
         }
         else{
-            iniciarSimulacion()
+            resultado.cantidad = 1;
+            carrito.push(resultado)
+            guardarCarrito()
         }
     }
     else{
-        alert("Aun no tiene ningun producto agregado al carrito")
-        iniciarSimulacion()
+        alert("Ha ocurrido un error")
     }
 }
-function tramitarPedido(){
-    if(carrito.length > 0){
-        const shopping = new compra(carrito)
-        alert(`El costo total del pedido es $${shopping.subtotal()}`)
-        let respuesta = confirm("¿Desea realizar la compra?")
-        if(respuesta){
-            alert(shopping.shopConfirm())
-            carrito.length = 0
-        }
-        else{
-            iniciarSimulacion()
-        }
+
+function pushCarrito() {
+    const carritoContainer = document.getElementById("carritoBody")
+    returnCarrito()
+    carrito.forEach((producto) => {
+        carritoContainer.innerHTML += productCardReturn(producto)
+    })
+}
+
+function guardarCarrito() {
+    localStorage.setItem("carrito", JSON.stringify(carrito))
+}
+
+function returnCarrito(){
+    const carritoReturned = JSON.parse(localStorage.getItem("carrito"))
+    if(carritoReturned.length > 0){
+        carrito.push(...carritoReturned)
     }
 }
+
+
+
+
+// function buscar(codigo){
+//     let resultado = listProducts.find((Product)=> Product.codigo === parseInt(codigo))
+//     console.log(typeof(resultado))
+//     return resultado
+// }

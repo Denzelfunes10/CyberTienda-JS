@@ -30,10 +30,29 @@ header{
                 width: 300px;
             }
         }
-        .icons img{
-            height: 30px;
-            width: auto;
-            padding-inline: 5px;
+        .icons{
+            display: flex;
+            div{
+                width: 160px;
+            }
+            div:first-child{
+                border-right: 1px solid #000;
+                padding-right: 10px;
+            }
+            div:last-child{
+                border-left: 1px solid #000;
+                padding-left: 10px;
+            }
+            a{
+                @include flex(center, center);
+                font-family: $subtitle;
+                color: black;
+                img{
+                    height: 30px;
+                    width: auto;
+                    padding-right: 5px;
+                }
+            }
         }
         .menu{
             button{

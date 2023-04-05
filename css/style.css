@@ -50,21 +50,31 @@ p {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  transition: transform 0.3s ease-out;
+  width: 200px;
   height: 300px;
-  width: 250px;
   border-radius: 10px;
-  box-shadow: 3px 6px 10px 7px #aeaeae;
-  margin-inline: 15px;
-  padding: 10px; }
+  box-shadow: 2px 2px 4px 2px #aeaeae;
+  padding: 15px; }
   .product-target img {
     width: 100%;
-    height: 230px;
+    height: 150px;
     border-radius: 10px; }
   .product-target figcaption {
     font-family: "LexendExa";
-    font-size: 20px;
+    font-size: 16px;
     color: #000;
     text-align: center; }
+  .product-target button {
+    font-family: "LexendDeca";
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    border-color: darkblue;
+    background-color: darkblue; }
+
+.product-target:hover {
+  transform: scale(1.05); }
 
 header {
   display: flex;
@@ -101,10 +111,27 @@ header {
           width: auto; }
       header .navbar form input {
         width: 300px; }
-    header .navbar .icons img {
-      height: 30px;
-      width: auto;
-      padding-inline: 5px; }
+    header .navbar .icons {
+      display: flex; }
+      header .navbar .icons div {
+        width: 160px; }
+      header .navbar .icons div:first-child {
+        border-right: 1px solid #000;
+        padding-right: 10px; }
+      header .navbar .icons div:last-child {
+        border-left: 1px solid #000;
+        padding-left: 10px; }
+      header .navbar .icons a {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: center;
+        align-items: center;
+        font-family: "LexendDeca";
+        color: black; }
+        header .navbar .icons a img {
+          height: 30px;
+          width: auto;
+          padding-right: 5px; }
     header .navbar .menu button {
       height: 50px; }
     header .navbar .menu .nav-item {
@@ -148,7 +175,8 @@ header {
   display: flex;
   flex-flow: wrap;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  gap: 50px; }
 
 footer {
   background-image: url(../assets/img/darkTrianglesHorizontal.png);
@@ -215,34 +243,146 @@ footer {
       color: #fff;
       text-align: center; }
 
-.main-products {
-  padding: 30px; }
-  .main-products h1 {
-    font-family: "ProCrastinatingPixie";
-    font-size: 40px;
-    color: #000;
-    text-align: left;
-    padding-bottom: 10px; }
-  .main-products div {
-    font-family: "LexendExa";
-    font-size: 20px;
-    color: #000;
-    text-align: left;
+.main-categories {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1.5fr repeat(5, 1fr);
+  grid-template-rows: 150px repeat(3, 1fr) 150px;
+  grid-template-areas: "C-title . . . . ." "C-categories C-products C-products C-products C-products C-products" "C-categories C-products C-products C-products C-products C-products" "C-categories C-products C-products C-products C-products C-products" "C-categories . . . . ."; }
+  .main-categories .section-title {
+    grid-area: C-title;
     display: flex;
-    padding-bottom: 30px; }
-    .main-products div img {
-      height: 30px;
-      width: auto;
-      padding-right: 5px; }
-    .main-products div a {
-      color: #000; }
-  .main-products section {
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding-left: 25px; }
+    .main-categories .section-title h1 {
+      font-family: "ProCrastinatingPixie";
+      font-size: 40px;
+      color: #000;
+      text-align: left; }
+    .main-categories .section-title .main-rute {
+      display: flex;
+      flex-flow: wrap;
+      justify-content: left;
+      align-items: center; }
+      .main-categories .section-title .main-rute img {
+        display: block;
+        height: 25px;
+        width: auto;
+        padding-right: 5px; }
+      .main-categories .section-title .main-rute a {
+        font-family: "LexendExa";
+        font-size: 20px;
+        color: #888;
+        text-align: left; }
+  .main-categories .acc-list {
+    grid-area: C-categories;
+    padding-inline: 20px;
+    width: 100%; }
+    .main-categories .acc-list h2 {
+      font-family: "LexendDeca";
+      font-size: 25px;
+      color: #000;
+      text-align: left; }
+    .main-categories .acc-list ul li {
+      list-style: none;
+      font-family: "LexendExa";
+      font-size: 16px;
+      color: #888;
+      text-align: left;
+      padding: 5px; }
+    .main-categories .acc-list li:hover {
+      cursor: pointer;
+      color: darkblue;
+      font-size: 105%; }
+  .main-categories .categories-products {
+    grid-area: C-products;
+    padding-inline: 25px;
     display: flex;
     flex-flow: wrap;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     gap: 20px; }
+
+.main-products {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1.5fr repeat(5, 1fr);
+  grid-template-rows: 150px 300px 1fr 1fr;
+  grid-template-areas: "P-title P-banner P-banner P-banner P-banner P-banner" "P-categories P-banner P-banner P-banner P-banner P-banner" "P-categories P-offers P-offers P-offers P-offers P-offers" "P-categories P-offers P-offers P-offers P-offers P-offers"; }
+  .main-products .section-title {
+    grid-area: P-title;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding-left: 25px; }
+    .main-products .section-title h1 {
+      font-family: "ProCrastinatingPixie";
+      font-size: 40px;
+      color: #000;
+      text-align: left; }
+    .main-products .section-title .main-rute {
+      display: flex;
+      flex-flow: wrap;
+      justify-content: left;
+      align-items: center; }
+      .main-products .section-title .main-rute img {
+        display: block;
+        height: 25px;
+        width: auto;
+        padding-right: 5px; }
+      .main-products .section-title .main-rute a {
+        font-family: "LexendExa";
+        font-size: 20px;
+        color: #888;
+        text-align: left; }
+  .main-products .categories {
+    grid-area: P-categories;
+    padding-inline: 20px;
+    width: 100%; }
+    .main-products .categories div {
+      border-bottom: 2px solid #ccc;
+      margin-bottom: 10px; }
+      .main-products .categories div h2 {
+        font-family: "LexendDeca";
+        font-size: 25px;
+        color: #000;
+        text-align: left; }
+    .main-products .categories ul li {
+      list-style: none;
+      font-family: "LexendExa";
+      font-size: 16px;
+      color: #888;
+      text-align: left;
+      padding: 5px; }
+    .main-products .categories li:hover {
+      color: darkblue;
+      font-size: 105%; }
+  .main-products .products-banner {
+    grid-area: P-banner;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 50px; }
+    .main-products .products-banner .carousel {
+      display: flex;
+      width: 100%;
+      height: 350px;
+      overflow-x: scroll; }
+      .main-products .products-banner .carousel img {
+        scroll-snap-align: center;
+        width: 100%; }
+  .main-products .products-offers {
+    grid-area: P-offers;
+    padding-inline: 50px; }
+    .main-products .products-offers div {
+      display: flex;
+      flex-flow: wrap;
+      justify-content: space-between;
+      align-items: center; }
 
 .carrito {
   display: flex;
