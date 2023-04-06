@@ -24,3 +24,4 @@ function productCardReturn(producto){
                 <td>$#</td>
             </tr>`
 }
+

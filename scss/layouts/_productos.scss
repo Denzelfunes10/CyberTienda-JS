@@ -4,11 +4,12 @@
         grid-template-columns: 1.5fr repeat(5, 1fr);
         grid-template-rows: 150px 300px 1fr 1fr;
         grid-template-areas: 
-        "P-title P-banner P-banner P-banner P-banner P-banner"
-        "P-categories P-banner P-banner P-banner P-banner P-banner"
-        "P-categories P-offers P-offers P-offers P-offers P-offers"
-        "P-categories P-offers P-offers P-offers P-offers P-offers"
+        "P-title P-title P-title . . ."
+        "P-categories P-target P-target P-target P-target P-target"
+        "P-categories P-target P-target P-target P-target P-target"
+        "P-categories P-target P-target P-target P-target P-target"
         ;
+
     .section-title{
         grid-area: P-title;
         @include flexColumn(center, left);
@@ -29,16 +30,11 @@
             }
         }
     }
-    .categories{
+    .acc-list{
         grid-area: P-categories;
-        padding-inline: 20px;
         width: 100%;
-        div{
-            border-bottom: 2px solid #ccc;
-            margin-bottom: 10px;
-            h2{
-                @include font($subtitle, 25px, #000, left);
-            }
+        h2{
+            @include font($subtitle, 25px, #000, left);
         }
         ul li{
             list-style: none;
@@ -46,31 +42,33 @@
             padding: 5px;
         }
         li:hover{
+            cursor: pointer; 
             color: darkblue;
             font-size: 105%;
         }
     }
-    .products-banner{
-        grid-area: P-banner;
+
+    .categories-products{
+        grid-area: P-target;
+        padding-inline: 25px;
         @include flex(center, center);
-        padding-inline: 50px;
-        .carousel{
-            display: flex;
-            width: 100%;
-            height: 350px;
-            overflow-x: scroll;
-            img {
-                scroll-snap-align: center;
-                width: 100%;
-            }
-        }
-    }
-    .products-offers{
-        grid-area: P-offers;
-        padding-inline: 50px;
-        div{
-            @include flex(space-between, center);
+        gap: 20px;
+        .notification {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 16px;
+            z-index: 1;
+            transition: opacity 0.5s ease-in-out;
         }
         
+        .hide {
+            opacity: 0;
+            pointer-events: none;
+        }
     }
 }

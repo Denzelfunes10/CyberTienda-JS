@@ -2,11 +2,11 @@
 const carrito = []
 
 const listProducts = [  
-    { codigo: 1, categoria: "laptops", nombre: "Laptop 1", precio: 250.00, imagen: "./assets/img/imgProductos/acerNitro.png" },
-    { codigo: 2, categoria: "laptops", nombre: "Laptop 2", precio: 350.00, imagen: "./assets/img/imgProductos/acerNitro.png" },
-    { codigo: 3, categoria: "laptops", nombre: "Laptop 3", precio: 450.00, imagen: "./assets/img/imgProductos/acerNitro.png" },
-    { codigo: 4, categoria: "laptops", nombre: "Laptop 4", precio: 550.00, imagen: "./assets/img/imgProductos/acerNitro.png" },
-    { codigo: 5, categoria: "laptops", nombre: "Laptop 5", precio: 650.00, imagen: "./assets/img/imgProductos/acerNitro.png" },
+    { codigo: 1, categoria: "Laptops", nombre: "Laptop 1", precio: 250.00, imagen: "./assets/img/imgProductos/acerNitro.png" },
+    { codigo: 2, categoria: "Laptops", nombre: "Laptop 2", precio: 350.00, imagen: "./assets/img/imgProductos/acerNitro.png" },
+    { codigo: 3, categoria: "Laptops", nombre: "Laptop 3", precio: 450.00, imagen: "./assets/img/imgProductos/acerNitro.png" },
+    { codigo: 4, categoria: "Laptops", nombre: "Laptop 4", precio: 550.00, imagen: "./assets/img/imgProductos/acerNitro.png" },
+    { codigo: 5, categoria: "Laptops", nombre: "Laptop 5", precio: 650.00, imagen: "./assets/img/imgProductos/acerNitro.png" },
     { codigo: 6, categoria: "PC de escritorio", nombre: "PC 1", precio: 200.00, imagen: "./assets/img/imgProductos/PC.png" },
     { codigo: 7, categoria: "PC de escritorio", nombre: "PC 2", precio: 300.00, imagen: "./assets/img/imgProductos/PC.png" },
     { codigo: 8, categoria: "PC de escritorio", nombre: "PC 3", precio: 400.00, imagen: "./assets/img/imgProductos/PC.png" },
