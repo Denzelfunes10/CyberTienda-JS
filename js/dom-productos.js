@@ -1,24 +1,29 @@
 
 //JS DEDICACO A LA CARGA DEL HTML DE PRODUCTOS
 const productsContainer = document.getElementById("products-section")
+// const listProducts = "../json/productos.json"
 
-function pushProducts(){
-    const productsContainer = document.getElementById("products-section")
-    if(productsContainer !== null){
-        listProducts.forEach((producto)=>{
+fetch('/json/productos.json')
+    .then(respuesta => respuesta.json())
+    .then((producto) => {
+        producto.forEach( producto=>{
             productsContainer.innerHTML += cardReturn(producto)
         })
-    }
-}
+    })
+    .catch(error => console.log(error))
+    .finally(()=> console.log("proceso finalizado"))
 
-function showNotification() {
-    const notification = document.getElementById("notification");
-    notification.classList.remove("hide")
-    setTimeout(() => {notification.classList.add("hide")}, 800)
-}
+// function pushProducts(){
+//     const productsContainer = document.getElementById("products-section")
+//     if(productsContainer !== null){
+//         listProducts.forEach((producto)=>{
+//             productsContainer.innerHTML += cardReturn(producto)
+//         })
+//     }
+// }
 
 function guardarCarrito() {
-    localStorage.setItem("carrito", JSON.stringify(cart.carrito));
+    localStorage.setItem("carrito", JSON.stringify(cart.carrito))
 }
 
 if (productsContainer !== null){
@@ -26,10 +31,8 @@ if (productsContainer !== null){
         if (e.target.classList.contains("btn-add")) {
             cart.addProduct((parseInt(e.target.id))) //Envio el codigo del producto a la clase ShoppingCart
             guardarCarrito()
-            showNotification()
-            cart.printCart()
         }
-    })
+    }) 
 }
 
-document.addEventListener("DOMContentLoaded", pushProducts)
+// document.addEventListener("DOMContentLoaded", pushProducts)

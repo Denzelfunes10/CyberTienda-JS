@@ -6,31 +6,67 @@ class ShoppingCart {
     }
 
     addProduct(productCode, quantity = 1) {
-        //productCode recibe el codigo del producto seleccionado
         const product = listProducts.find((product) => product.codigo === productCode) 
         if (!product) {
-            alert(`Producto fuera de stock`)
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'El producto se encuentra fuera de stock!',
+            })
         }
         const existingItem = this.carrito.find((i) => i.product.codigo === productCode)
         if (existingItem) {
             existingItem.quantity += quantity
-            console.log(`Producto sumado ${existingItem.quantity}`)
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Producto sumado a la cesta',
+                showConfirmButton: false,
+                timer: 1500
+            })
         } else {
             this.carrito.push({ product, quantity })
-            console.log(`${product.nombre} añadido`)
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Producto añadido a la cesta',
+                showConfirmButton: false,
+                timer: 1500
+            })
         }
     }
 
-    removeProduct(productCode, quantity = 1) {
-        const existingItemIndex = this.carrito.findIndex((i) => i.product.codigo === productCode);
-        if (existingItemIndex === -1) {
-            throw new Error(`Product with code ${productCode} not found in cart`);
-        }
-        const existingItem = this.carrito[existingItemIndex];
-        if (existingItem.quantity <= quantity) {
-            this.carrito.splice(existingItemIndex, 1);
+    removeProduct(productCode) {
+        const existingItem = this.carrito.find((producto) => producto.product.codigo.toString() === productCode.toString())
+        if (existingItem !== undefined) {
+            const index = this.carrito.indexOf(existingItem)
+            this.carrito.splice(index, 1)
+            guardarCarrito()
+            location.reload()
         } else {
-            existingItem.quantity -= quantity;
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'El producto no ha podido ser eliminado!',
+            })
+        }
+    }
+
+    modificarCantidad(productCode, operador) {
+        const existingItem = this.carrito.find((producto) => producto.product.codigo.toString() === productCode.toString())
+        if (existingItem !== undefined) {
+            existingItem.quantity += operador
+            if(existingItem.quantity < 1){
+                deleteItem(productCode)
+            }
+            guardarCarrito()
+            location.reload()
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Ha ocurrido algun problema!',
+            })
         }
     }
 
@@ -38,11 +74,13 @@ class ShoppingCart {
         return this.carrito.reduce((total, item) => total + item.product.precio * item.quantity, 0);
     }
 
-    printCart() {
-        console.log(`Items in cart:`);
-        for (const { product, quantity } of this.carrito) {
-            console.log(`- ${product.nombre} x ${quantity} = ${product.precio * quantity}`);
-        }
-        console.log(`Total: ${this.getSubtotal()}`);
-    }
+    // ---------------- imprime carrito en la consola ---------------- //
+
+    // printCart() {
+    //     console.log(`Items in cart:`);
+    //     for (const { product, quantity } of this.carrito) {
+    //         console.log(`- ${product.nombre} x ${quantity} = ${product.precio * quantity}`);
+    //     }
+    //     console.log(`Total: ${this.getSubtotal()}`);
+    // }
 }

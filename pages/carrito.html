@@ -98,6 +98,75 @@
                 
             </table>
         </div>
+        <section id="checkout-section" class="container-checkout hide">
+            <div id="shipment-section" class="container-shipment">
+                <h2>Datos de envío</h2>
+                <form>
+                    <div>
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" value="Juan" required>
+                    </div>
+                    <div>
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" id="apellido" name="apellido" value="Perez" required>
+                    </div>
+                    <div>
+                        <label for="mail">Correo electronico:</label>
+                        <input type="email" id="mail" name="mail" value="juan.perez@gmail.com" required>
+                    </div>
+                    <div>
+                        <label for="telefono">Numero de contacto:</label>
+                        <input type="tel" id="telefono" name="telefono" value="654 32 10 98" required>
+                    </div>
+                    <div class="largeW">
+                        <label for="direccion">Dirección:</label>
+                        <input type="text" id="direccion" name="direccion" value="Calle lepanto 10" required>
+                    </div>
+                    <div class="smallW">
+                        <label for="ciudad">Ciudad:</label>
+                        <input type="text" id="ciudad" name="ciudad" value="Valencia" required>
+                    </div>
+                    <div class="smallW">
+                        <label for="estado">Provincia:</label>
+                        <input type="text" id="estado" name="estado" value="Valencia" required>
+                    </div>
+                    <div class="smallW">
+                        <label for="codigo-postal">Código postal:</label>
+                        <input type="text" id="codigo-postal" name="codigo-postal" value="46001" required>
+                    </div>
+                    <div class="botones-form">
+                        <button id="cancelar" type="button" class="cancelbtn">Cancelar</button>
+                        <button id="continueBtn" type="button" class="confirmBtn">Continuar</button>
+                    </div>
+                </form>
+            </div>
+        
+            <div id="payment-section" class="container-payment hide">
+                <h2>Metodo de pago</h2>
+                <form>
+                    <div class="largeW">
+                        <label for="numero-tarjeta">Número de tarjeta:</label>
+                        <input type="text" id="numero-tarjeta" name="numero-tarjeta" value="1234 5678 9102 3456" required>
+                    </div>
+                    <div>
+                        <label for="fecha-expiracion">Fecha de expiración:</label>
+                        <input type="text" id="fecha-expiracion" name="fecha-expiracion" placeholder="MM/AA" value="10/26" required>
+                    </div>
+                    <div>
+                        <label for="codigo-seguridad">CVV:</label>
+                        <input type="text" id="codigo-seguridad" name="codigo-seguridad" value="123" required>
+                    </div>
+                    <div class="largeW">
+                        <label for="nombre-tarjeta">Nombre en la tarjeta:</label>
+                        <input type="text" id="nombre-tarjeta" name="nombre-tarjeta" value="Juan Perez" required>
+                    </div>
+                    <div class="botones-form">
+                        <button id="returnbtn" type="button" class="cancelbtn">Volver</button>
+                        <button id="confirmar" type="button" class="confirmBtn">Confirmar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
     </main>
     <footer>
         <section>
@@ -125,6 +194,9 @@
             </div>
         </section>
     </footer>
+
+    <!------ Script de Sweet Alert ------>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!------ Script de bootstrap ------>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"

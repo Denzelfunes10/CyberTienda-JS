@@ -11,17 +11,19 @@ function productCardReturn(producto){
                 <td>
                     <img src=".${producto.product.imagen}" alt="${producto.product.nombre}">
                 </td>
-                <td>
+                <td class="description">
                     <a href="#"><h4>${producto.product.nombre}</h4></a>
-                    <p></p>
+                    <button class="deleteBtn" data-producto="${producto.product.codigo}">
+                        <img src="../assets/img/trash.svg" alt="Basurero">Eliminar
+                    </button>
                 </td>
                 <td class="quantity-container">
-                    <button class="button" id="subtract-btn${producto.product.codigo}">-</button>
-                    <span class="quantity" id="quantity${producto.product.codigo}">${producto.quantity}</span>
-                    <button class="button" id="add-btn${producto.product.codigo}">+</button>
+                    <button class="subtract-btn" data-producto="${producto.product.codigo}">-</button>
+                    <span class="quantity">${producto.quantity}</span>
+                    <button class="add-btn" data-producto="${producto.product.codigo}">+</button>
                 </td>
                 <td>$${producto.product.precio}</td>
-                <td>$</td> 
+                <td>$${producto.product.precio * producto.quantity}</td> 
             </tr>`
 }
 
@@ -52,7 +54,7 @@ function resumeCardReturn(){
                 </tr>
                 <tr>
                     <td colspan="2" class="checkout-btn-container">
-                        <button class="checkout-btn">Tramitar Pedido</button>
+                        <button class="checkout-btn" id="checkout">Tramitar Pedido</button>
                     </td>
                 </tr>
             </tfoot>`
