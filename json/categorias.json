@@ -1,0 +1,10 @@
+[
+    { "codigo": "C1", "nombre": "Laptops", "ruta": "/ Laptops"},
+    { "codigo": "C2", "nombre": "PC de escritorio", "ruta": "/ PC de escritorio"},
+    { "codigo": "C3", "nombre": "Almacenamiento", "ruta": "/ Almacenamiento"},
+    { "codigo": "C4", "nombre": "Memorias RAM", "ruta": "/ Memorias RAM"},
+    { "codigo": "C5", "nombre": "Teclados", "ruta": "/ Teclados"},
+    { "codigo": "C6", "nombre": "Ratones", "ruta": "/ Ratones"},
+    { "codigo": "C7", "nombre": "Bocinas", "ruta": "/ Bocinas"},
+    { "codigo": "C8", "nombre": "Audifonos", "ruta": "/ Audifonos"}
+]

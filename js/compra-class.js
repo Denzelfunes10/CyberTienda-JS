@@ -1,12 +1,21 @@
 class ShoppingCart {
-    constructor(listProducts) {
-        this.listProducts = listProducts
+    constructor() {
+        this.init()
         const savedCart = JSON.parse(localStorage.getItem("carrito")) || []
-        this.carrito = savedCart;
+        this.carrito = savedCart
+    }
+    async init() {
+        this.productos = await this.fetchProducts()
+    }
+    
+    async fetchProducts() {
+        const response = await fetch(listProducts)
+        const data = await response.json()
+        return data
     }
 
     addProduct(productCode, quantity = 1) {
-        const product = listProducts.find((product) => product.codigo === productCode) 
+        const product = this.productos.find((product) => product.codigo === productCode) 
         if (!product) {
             Swal.fire({
                 icon: 'error',
@@ -65,13 +74,13 @@ class ShoppingCart {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Ha ocurrido algun problema!',
+                text: 'Ha ocurrido algun problema!'
             })
         }
     }
 
     getSubtotal() {
-        return this.carrito.reduce((total, item) => total + item.product.precio * item.quantity, 0);
+        return this.carrito.reduce((total, item) => total + item.product.precio * item.quantity, 0)
     }
 
     // ---------------- imprime carrito en la consola ---------------- //

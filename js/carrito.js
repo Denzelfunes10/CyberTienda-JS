@@ -98,8 +98,7 @@ function finalizarCompra(){
         position: 'center',
         icon: 'success',
         title: 'Su compra ha sido realizada con exito',
-        confirmButtonText: 'ok',
-        timer: 1500
+        confirmButtonText: 'OK'
     }).then((result) => {
         if (result.isConfirmed) {
             localStorage.removeItem("carrito")

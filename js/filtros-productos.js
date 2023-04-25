@@ -5,39 +5,59 @@
 
 document.addEventListener("DOMContentLoaded", categorySelected)
 
-const categoriesContainer = document.querySelector (".list-categories")
+const categoriesContainer = document.querySelector(".list-categories")
 const rutaContainer = document.getElementById("category-rute")
 
 if(categoriesContainer !== null){
-    for (let i = 0; i < Categories.length; i++) {
-        const li = document.createElement('li')
-        li.id = Categories[i].codigo
-        li.className = "categoria"
-        li.setAttribute("ruta", Categories[i].ruta)
-        li.textContent = Categories[i].nombre
-        categoriesContainer.appendChild(li)
-    }
+    fetch(Categories)
+        .then(respuesta => respuesta.json())
+        .then(data => {
+            const Categories = data
+            for (let i = 0; i < Categories.length; i++) {
+                const li = document.createElement('li')
+                li.id = Categories[i].codigo
+                li.className = "categoria"
+                li.setAttribute("ruta", Categories[i].ruta)
+                li.textContent = Categories[i].nombre
+                categoriesContainer.appendChild(li)
+            }
+        })
+        .catch(error => console.log(error))
 }
 
 function categorySelected() {
-    const categories = document.getElementsByClassName("categoria");
-    for (category of categories) {
-        category.addEventListener("click", (event) => { 
-            const productos = listProducts
-            const categoria = event.target.textContent
-            const productosFiltrados = filtrarPorCategoria(productos, categoria)
+    const categories = document.getElementsByClassName("categoria")
+    const productsContainer = document.getElementById("products-section")
+    let productos
 
-            const productsContainer = document.getElementById("products-section")
-            productsContainer.innerHTML = ""
-
-            productosFiltrados.forEach((producto)=>{
-                productsContainer.innerHTML += cardReturn(producto)
+    fetch(listProducts)
+    .then(respuesta => respuesta.json())
+    .then(data => {
+        productos = data
+        
+        for (category of categories) {
+            category.addEventListener("click", (event) => { 
+                const categoria = event.target.textContent
+                const productosFiltrados = filtrarPorCategoria(productos, categoria)
+                
+                productsContainer.innerHTML = ""
+                
+                productosFiltrados.forEach((producto)=>{
+                    productsContainer.innerHTML += cardReturn(producto)
+                })
+                
+                const ruta = event.target.getAttribute("ruta");
+                rutaContainer.textContent = ruta
             })
+        }
+    })
+    .catch(() => Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Hubo un error al obtener la lista de productos!',
+    }))
 
-            const ruta = event.target.getAttribute("ruta");
-            rutaContainer.textContent = ruta
-        })
-    }
+    
 }
 
 function filtrarPorCategoria(productos, categoria) {
