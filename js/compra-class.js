@@ -78,9 +78,10 @@ class ShoppingCart {
             existingItem.quantity += operador
             if(existingItem.quantity < 1){
                 deleteItem(productCode)
+            } else{
+                location.reload()
             }
             guardarCarrito()
-            location.reload()
         } else {
             Swal.fire({
                 icon: 'error',

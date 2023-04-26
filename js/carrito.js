@@ -43,7 +43,21 @@ function deleteItem(productCode){ //productCode se recibe unicamente cuando la c
     const deleteBtn = document.querySelectorAll(".deleteBtn")
 
     if(productCode !== undefined){ 
-        cart.removeProduct(productCode)
+        Swal.fire({
+            title: '¿Esta seguro de que desea eliminar el producto de carrito?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminalo',
+            cancelButtonText: 'No, cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                cart.removeProduct(productCode)
+            } else{
+                cart.modificarCantidad(productCode, 1) //vuelve a poner la cantidad a 1
+            }
+        })
     } 
     else { //si no se recibe productCode significa que se eliminara solo si se da click en eliminar
         deleteBtn.forEach((btn)=> {
@@ -60,7 +74,7 @@ function deleteItem(productCode){ //productCode se recibe unicamente cuando la c
                 }).then((result) => {
                     if (result.isConfirmed) {
                         cart.removeProduct(codigoProducto)
-                    }
+                    } 
                 })
             })
         })
