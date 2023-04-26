@@ -28,6 +28,27 @@
         width: 100%;
         gap: 50px;
 
+        .emptycart{
+            @include flexColumn(center, center);
+            background-color: #f5f5f5;
+            width: 50%;
+            border-radius: 10px;
+            padding: 20px;
+            h3{
+                @include font($subtitle, 30px, #000, center);
+                padding-top: 30px;
+            }
+            img{
+                height: 200px;
+            }
+            p{
+                @include font($subtitle, 30px, rgb(200, 0, 0), center);
+                padding-bottom: 30px;
+                a{
+                    color: unset;
+                }
+            }
+        }
         table{
             thead{
                 @include font($subtitle, 30px, #000, center);
@@ -67,62 +88,64 @@
         }
         .product-table {
             width: 1000px;
-
-            th:first-child {
-                width: 60%;
-            }
-            td{
-                padding: 10px;
-                border-bottom: 1px solid #ddd;
-                height: 225px;
-                h4{
-                    @include font($text, 20px, #000, left);
+            .products-container{
+                th:first-child {
+                    width: 60%;
                 }
-                p{
-                    @include font($text, 15px, #5d5d5d, justify)
-                }
-                img{
-                    width: 200px;
-                    height: fit-content;
-                }
-                button {
-                background-color: #F5F5F5;
-                border: none;
-                border-radius: 5px;
-                color: #555;
-                font-size: 18px;
-                font-weight: bold;
-                padding: 5px 10px;
-                cursor: pointer;
-                }
-                button:hover {
-                    background-color: #ddd;
-                }
-                .quantity {
-                    text-align: center;
-                    margin: 0 10px;
-                }
-            }
-            .description{
-                @include flexColumn(space-between, start);
-                button{
-                    display: flex;
-                    color: #F00;
-                    background-color: unset;
-                    padding: 0;
+                td{
+                    padding: 10px;
+                    border-bottom: 1px solid #ddd;
+                    height: 260px;
+                    h4{
+                        @include font($text, 20px, #000, left);
+                    }
+                    p{
+                        @include font($text, 15px, #5d5d5d, justify)
+                    }
                     img{
-                    height: 25px;
-                    width: auto;
+                        height: 150px;
+                        width: fit-content;
+                        max-width: 250px;
+                    }
+                    button {
+                        background-color: #F5F5F5;
+                        border: none;
+                        border-radius: 5px;
+                        color: #555;
+                        font-size: 18px;
+                        font-weight: bold;
+                        padding: 5px 10px;
+                    }
+                    button:hover {
+                        background-color: #ddd;
+                    }
+                    .quantity {
+                        text-align: center;
+                        margin: 0 10px;
                     }
                 }
-                div:hover{
-                    cursor: pointer; 
+                .description{
+                    @include flexColumn(space-around, start);
+                    button{
+                        display: flex;
+                        color: #F00;
+                        background-color: unset;
+                        padding: 0;
+                        img{
+                        height: 25px;
+                        width: auto;
+                        }
+                    }
+                    div:hover{
+                        cursor: pointer; 
+                    }
+                }
+                td:last-child {
+                    font-weight: bold;
+                    text-align: center;
                 }
             }
-            td:last-child {
-                font-weight: bold;
-                text-align: center;
-            }
+            
         }
         .resume-table{
             width: 400px;

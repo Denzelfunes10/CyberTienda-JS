@@ -14,14 +14,20 @@ const resumenContainer = document.getElementById("resume-table")
 
 function pushCarrito() {
     const carritoContainer = document.getElementById("carritoBody")
+    const carritoTable = document.getElementById("carrito-table")
     if(carritoContainer !== null){
         carritoContainer.innerHTML = ""
         resumenContainer.innerHTML = ""
         cargarCarrito()
-        carrito.forEach((product) => {
-            carritoContainer.innerHTML += productCardReturn(product)
-        })
-        resumenContainer.innerHTML += resumeCardReturn()
+        if(carrito.length > 0){
+            carrito.forEach((product) => {
+                carritoContainer.innerHTML += productCardReturn(product)
+            })
+            resumenContainer.innerHTML += resumeCardReturn()
+        }
+        else{
+            carritoTable.innerHTML = emptyCardReturn()
+        }
     }
 }
 
@@ -33,15 +39,29 @@ function cargarCarrito() {
     }
 }
 
-function deleteItem(productCode){
+function deleteItem(productCode){ //productCode se recibe unicamente cuando la cantidad del producto llega a cero 
     const deleteBtn = document.querySelectorAll(".deleteBtn")
-    if(productCode !== undefined){
+
+    if(productCode !== undefined){ 
         cart.removeProduct(productCode)
-    } else{
+    } 
+    else { //si no se recibe productCode significa que se eliminara solo si se da click en eliminar
         deleteBtn.forEach((btn)=> {
             btn.addEventListener('click', ()=>{
                 const codigoProducto = btn.dataset.producto
-                cart.removeProduct(codigoProducto)
+                Swal.fire({
+                    title: '¿Esta seguro de que desea eliminar el producto de carrito?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, eliminalo',
+                    cancelButtonText: 'No, cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        cart.removeProduct(codigoProducto)
+                    }
+                })
             })
         })
     }

@@ -46,32 +46,55 @@ p {
   src: url(../assets/font/LexendExa-Regular.ttf); }
 
 .product-target {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
   transition: transform 0.3s ease-out;
   width: 200px;
   height: 300px;
   border-radius: 10px;
   box-shadow: 2px 2px 4px 2px #aeaeae;
-  padding: 15px; }
-  .product-target img {
-    width: 100%;
-    height: 150px;
-    border-radius: 10px; }
-  .product-target figcaption {
-    font-family: "LexendExa";
-    font-size: 16px;
-    color: #000;
-    text-align: center; }
-  .product-target button {
-    font-family: "LexendDeca";
-    font-size: 16px;
-    color: #fff;
-    text-align: center;
-    border-color: darkblue;
-    background-color: darkblue; }
+  padding: 15px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1.5fr 1fr;
+  grid-template-areas: "t-img" "t-description"; }
+  .product-target .imagen-target {
+    grid-area: t-img;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: center; }
+    .product-target .imagen-target img {
+      width: fit-content;
+      max-width: 170px;
+      max-height: 150px;
+      border-radius: 10px; }
+  .product-target div {
+    grid-area: t-description;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center; }
+    .product-target div figcaption {
+      font-family: "LexendExa";
+      font-size: 16px;
+      color: #000;
+      text-align: left;
+      padding-left: 5px;
+      align-self: flex-start; }
+    .product-target div p {
+      font-family: "LexendExa";
+      font-size: 16px;
+      color: #777;
+      text-align: left;
+      padding: 5px;
+      align-self: flex-start; }
+    .product-target div button {
+      font-family: "LexendDeca";
+      font-size: 16px;
+      color: #fff;
+      text-align: center;
+      width: 100%;
+      border-color: darkblue;
+      background-color: darkblue; }
 
 .product-target:hover {
   transform: scale(1.05); }
@@ -248,7 +271,7 @@ footer {
   width: 100%;
   grid-template-columns: 1.5fr repeat(5, 1fr);
   grid-template-rows: 150px 300px 1fr 1fr;
-  grid-template-areas: "P-title P-title P-title . . ." "P-categories P-target P-target P-target P-target P-target" "P-categories P-target P-target P-target P-target P-target" "P-categories P-target P-target P-target P-target P-target"; }
+  grid-template-areas: "P-title P-title P-title P-title P-title P-title" "P-categories P-target P-target P-target P-target P-target" "P-categories P-target P-target P-target P-target P-target" "P-categories P-target P-target P-target P-target P-target"; }
   .main-products .section-title {
     grid-area: P-title;
     display: flex;
@@ -278,23 +301,30 @@ footer {
         text-align: left; }
   .main-products .acc-list {
     grid-area: P-categories;
-    width: 100%; }
+    width: 100%;
+    border-right: 1px solid #ddd; }
     .main-products .acc-list h2 {
       font-family: "LexendDeca";
-      font-size: 25px;
+      font-size: 24px;
       color: #000;
-      text-align: left; }
+      text-align: left;
+      padding-top: 10px;
+      padding-left: 20px; }
     .main-products .acc-list ul li {
       list-style: none;
       font-family: "LexendExa";
       font-size: 16px;
       color: #888;
       text-align: left;
-      padding: 5px; }
+      padding: 5px;
+      padding-left: 20px; }
     .main-products .acc-list li:hover {
       cursor: pointer;
       color: darkblue;
       font-size: 105%; }
+    .main-products .acc-list h2:hover {
+      cursor: pointer;
+      color: darkblue; }
   .main-products .categories-products {
     grid-area: P-target;
     padding-inline: 25px;
@@ -338,6 +368,31 @@ footer {
     justify-content: center;
     width: 100%;
     gap: 50px; }
+    .carrito .container-table .emptycart {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #f5f5f5;
+      width: 50%;
+      border-radius: 10px;
+      padding: 20px; }
+      .carrito .container-table .emptycart h3 {
+        font-family: "LexendDeca";
+        font-size: 30px;
+        color: #000;
+        text-align: center;
+        padding-top: 30px; }
+      .carrito .container-table .emptycart img {
+        height: 200px; }
+      .carrito .container-table .emptycart p {
+        font-family: "LexendDeca";
+        font-size: 30px;
+        color: #c80000;
+        text-align: center;
+        padding-bottom: 30px; }
+        .carrito .container-table .emptycart p a {
+          color: unset; }
     .carrito .container-table table thead {
       font-family: "LexendDeca";
       font-size: 30px;
@@ -377,55 +432,55 @@ footer {
         border-bottom-right-radius: 10px; }
     .carrito .container-table .product-table {
       width: 1000px; }
-      .carrito .container-table .product-table th:first-child {
+      .carrito .container-table .product-table .products-container th:first-child {
         width: 60%; }
-      .carrito .container-table .product-table td {
+      .carrito .container-table .product-table .products-container td {
         padding: 10px;
         border-bottom: 1px solid #ddd;
-        height: 225px; }
-        .carrito .container-table .product-table td h4 {
+        height: 260px; }
+        .carrito .container-table .product-table .products-container td h4 {
           font-family: "LexendExa";
           font-size: 20px;
           color: #000;
           text-align: left; }
-        .carrito .container-table .product-table td p {
+        .carrito .container-table .product-table .products-container td p {
           font-family: "LexendExa";
           font-size: 15px;
           color: #5d5d5d;
           text-align: justify; }
-        .carrito .container-table .product-table td img {
-          width: 200px;
-          height: fit-content; }
-        .carrito .container-table .product-table td button {
+        .carrito .container-table .product-table .products-container td img {
+          height: 150px;
+          width: fit-content;
+          max-width: 250px; }
+        .carrito .container-table .product-table .products-container td button {
           background-color: #F5F5F5;
           border: none;
           border-radius: 5px;
           color: #555;
           font-size: 18px;
           font-weight: bold;
-          padding: 5px 10px;
-          cursor: pointer; }
-        .carrito .container-table .product-table td button:hover {
+          padding: 5px 10px; }
+        .carrito .container-table .product-table .products-container td button:hover {
           background-color: #ddd; }
-        .carrito .container-table .product-table td .quantity {
+        .carrito .container-table .product-table .products-container td .quantity {
           text-align: center;
           margin: 0 10px; }
-      .carrito .container-table .product-table .description {
+      .carrito .container-table .product-table .products-container .description {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: start; }
-        .carrito .container-table .product-table .description button {
+        .carrito .container-table .product-table .products-container .description button {
           display: flex;
           color: #F00;
           background-color: unset;
           padding: 0; }
-          .carrito .container-table .product-table .description button img {
+          .carrito .container-table .product-table .products-container .description button img {
             height: 25px;
             width: auto; }
-        .carrito .container-table .product-table .description div:hover {
+        .carrito .container-table .product-table .products-container .description div:hover {
           cursor: pointer; }
-      .carrito .container-table .product-table td:last-child {
+      .carrito .container-table .product-table .products-container td:last-child {
         font-weight: bold;
         text-align: center; }
     .carrito .container-table .resume-table {

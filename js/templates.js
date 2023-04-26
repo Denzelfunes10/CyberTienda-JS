@@ -1,8 +1,13 @@
 function cardReturn(producto){
     return `<div class="product-target">
+                <div class="imagen-target">
                 <img src=".${producto.imagen}" alt="${producto.nombre}">
-                <figcaption>${producto.nombre}</figcaption>
-                <button id="${producto.codigo}" class="btn btn-primary btn-add">Añadir al carrito</button>
+                </div>
+                <div>
+                    <figcaption class="product">${producto.nombre}</figcaption>
+                    <p>$${producto.precio}</p>
+                    <div id="btnTarget${producto.codigo}"><button id="${producto.codigo}" class="btn btn-primary btn-add">Añadir al carrito</button></div>
+                </div>
             </div>`
 }
 
@@ -60,3 +65,11 @@ function resumeCardReturn(){
             </tfoot>`
 }
 
+function emptyCardReturn(){
+    return `
+            <div class="emptycart">
+                <img src="../assets/img/sadFace.png" alt="carita triste">
+                <h3>Tu carrito se encuentra vacío</h3>
+                <p><a href="./productos.html">!Vamos a llenarlo!<a></p>
+            </div>`
+}

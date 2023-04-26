@@ -23,4 +23,3 @@ if (productsContainer !== null){
         }
     }) 
 }
-

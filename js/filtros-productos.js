@@ -69,3 +69,32 @@ function filtrarPorCategoria(productos, categoria) {
     }
     return productosFiltrados
 }
+
+const searchBar = document.querySelector('#search-form')
+const productsSection = document.querySelector('#products-section')
+searchBar.addEventListener('submit', (event)=>{
+    event.preventDefault() //previene que se actualice la pagina
+})
+searchBar.addEventListener('keyup', ()=>{
+    searchfilter()
+})
+function searchfilter(){
+    const searchTerm = document.querySelector('#search-input').value.toLowerCase().trim()
+
+    fetch(listProducts)
+    .then(response => response.json())
+    .then(products => {
+        productsSection.innerHTML = ""
+        products.forEach(product => {
+            if (product.nombre.toLowerCase().includes(searchTerm)) {
+                productsSection.innerHTML += cardReturn(product)
+            } 
+        })
+    })
+    .catch(() => Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Ha ocurrido algun problema al buscar los productos'
+    }))
+}
+    

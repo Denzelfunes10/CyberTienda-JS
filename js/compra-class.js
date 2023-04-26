@@ -26,7 +26,8 @@ class ShoppingCart {
         const existingItem = this.carrito.find((i) => i.product.codigo === productCode)
         if (existingItem) {
             existingItem.quantity += quantity
-            Swal.fire({
+            // Mensaje
+                Swal.fire({
                 position: 'center',
                 icon: 'success',
                 title: 'Producto sumado a la cesta',
@@ -35,6 +36,7 @@ class ShoppingCart {
             })
         } else {
             this.carrito.push({ product, quantity })
+            // Mensaje
             Swal.fire({
                 position: 'center',
                 icon: 'success',
@@ -51,12 +53,21 @@ class ShoppingCart {
             const index = this.carrito.indexOf(existingItem)
             this.carrito.splice(index, 1)
             guardarCarrito()
-            location.reload()
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Su producto ha sido eliminado correctamente',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.reload()
+                } 
+            })
         } else {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'El producto no ha podido ser eliminado!',
+                text: 'El producto no se ha encontrado para ser eliminado!',
             })
         }
     }

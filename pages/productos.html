@@ -23,11 +23,11 @@
         <nav class="navbar">
             <a href="../index.html"><h1>LA CYBER TIENDA</h1></a>
             <!------ Barra de navegación ------>
-            <form role="search">
+            <form id="search-form" role="search">
                 <button type="submit">
                     <img class=searchIcon src="../assets/img/searchIcon.svg" alt="Icono de busqueda">
                 </button>
-                <input class="form-control" type="search" placeholder="Buscar" aria-label="Search">
+                <input id="search-input" class="form-control" type="search" placeholder="Buscar" aria-label="Search">
             </form>
             <!------ Iconos de Carrito de compras y usuario ------>
             <div class="icons">
@@ -85,25 +85,17 @@
             </div>
         </div>
 
-        <div class="accordion accordion-flush acc-list" id="accordionFlushExample">
+        <div class="acc-list">
+            <a href="./productos.html"><h2> Todas las categorías</h2></a>
+            <ul class="list-categories">
 
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button open" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                    Categorías
-                    </button>
-                </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse show">
-                    <div class="accordion-body">
-                        <ul class="list-categories">
-                            
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            </ul>
+        </div>
+
+        <!--Para añadir diferentes filtros a futuro
+            <div class="accordion accordion-flush acc-list" id="accordionFlushExample">
             
-            <!-- Para añadir diferentes filtros a futuro -->
-            <!-- <div class="accordion-item">
+            <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                     Filtros
@@ -176,8 +168,9 @@
                         </ul>
                     </div>
                 </div>
-            </div> -->
-        </div>
+            </div> 
+        </div>-->
+
         <section id="products-section" class="categories-products">
         </section>
     </main>
